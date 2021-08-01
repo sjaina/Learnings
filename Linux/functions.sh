@@ -5,7 +5,7 @@ sample()
     echo My name is sandeep
     read -p 'Enter your Surname' surname
 
-    Echo Name entered is $surname
+    echo Name entered is $surname
 }
 
 sample
