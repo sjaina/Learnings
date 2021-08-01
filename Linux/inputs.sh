@@ -4,9 +4,9 @@ echo $0
 
 echo $1
 
-echo $n
+echo Last entered value $n
 
-echo *
+echo $*
 echo $1
 
 echo $#
