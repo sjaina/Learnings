@@ -5,4 +5,4 @@ $c=$(date +%F)
 
 echo $c
 
-Echo "File is running"
+echo "File is running"
