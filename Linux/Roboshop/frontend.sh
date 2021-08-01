@@ -14,7 +14,7 @@ print "Removing old docs"
 cd /usr/share/nginx/html &>>log && rm -rf * &>>log
 status_check $?
 
-Print "Unzipping the code"
+print "Unzipping the code"
 unzip /tmp/frontend.zip &>>log && mv frontend-main/* . &>>log && mv static/* &>>log && rm -rf frontend-master static &>>log
 status_check $?
 
