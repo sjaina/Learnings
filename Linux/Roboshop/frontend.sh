@@ -11,15 +11,18 @@ status_check()
   fi
 }
 
+print(){
+  echo -n -e "$1\t\t"
+}
 
-echo -n -e "Installing Nginix Server\t ..."
+print "Installing Nginix Server"
 yum install nginx -y &>>$log
 status_check $?
 
-echo -n -e "Enabling nginx service\t\t ..."
+print "Enabling nginx service\t"
 systemctl enable nginx &>>$log
 status_check $?
 
-echo -n -e "Starting ngnix server\t\t ..."
+print "Starting ngnix server\t"
 systemctl start nginx &>>$log
 status_check $?
