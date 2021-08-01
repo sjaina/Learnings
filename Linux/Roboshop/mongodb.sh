@@ -11,7 +11,7 @@ gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mong
 status_check $?
 
 print "Installing Mongodb"
- yum install -y mongodb-org  &>>$log
+yum install -y mongodb-org  &>>$log
  status_check $?
 
 print "Adding 0.0.0.0 in config file"
