@@ -3,9 +3,9 @@
 sample()
 {
     echo My name is sandeep
-    read "Name is " n
+    read -p 'Enter your Surname' surname
 
-    Echo Name entered is $n
+    Echo Name entered is $surname
 }
 
 sample
