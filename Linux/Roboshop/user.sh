@@ -1,0 +1,1 @@
+echo "We are installing $0"
