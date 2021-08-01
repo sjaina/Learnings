@@ -15,7 +15,7 @@ cd /usr/share/nginx/html &>>log && rm -rf * &>>$log
 status_check $?
 
 print "Unzipping the code"
-unzip /tmp/frontend.zip &>>$log && mv frontend-main/* . &>>$log && mv static/* &>>$log && rm -rf frontend-master static &>>$log
+unzip /tmp/frontend.zip &>>$log && mv frontend-main/* . &>>$log && mv static/* . &>>$log && rm -rf frontend-master static &>>$log
 status_check $?
 
 print "moving roboshop config"
