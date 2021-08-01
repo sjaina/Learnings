@@ -1,1 +1,2 @@
-echo "We are installing $0"
+#!/bin/bash
+source common.sh
