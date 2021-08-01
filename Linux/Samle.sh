@@ -12,3 +12,7 @@ v=(10 20 30 )
 echo ${v[*]}
 
 echo course name = ${COURSE}
+
+read -p 'Enter a name:' name
+
+echo "Entered name is $name"
