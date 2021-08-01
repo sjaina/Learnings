@@ -7,6 +7,6 @@ echo $1
 echo Last entered value $n
 
 echo $*
-echo $1
+echo $@
 
 echo $#
