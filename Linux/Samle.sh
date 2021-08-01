@@ -15,4 +15,4 @@ echo course name = ${COURSE}
 
 read -p 'Enter a name:' name
 
-echo "Entered name is $name"
+echo "Entered name is : $name"
