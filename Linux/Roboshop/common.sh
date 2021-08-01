@@ -10,7 +10,8 @@ status_check()
   if [ $1 -eq 0 ]; then
    echo -e "\e[32m Done\e[0m"
   else
-    echo Fail
+    echo -e "\e[31m Fail\e[0m"
+    exit 1
   fi
 }
 
@@ -18,3 +19,9 @@ status_check()
 print(){
   echo -n -e "$1\t\t"
 }
+
+user_ID=$(id -u)
+ if [ $user_ID -ne 0 ]; then
+   echo -e "\e[31m You should be root user to run the commands\[0m"
+   exit 2
+   fi
