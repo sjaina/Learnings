@@ -11,4 +11,6 @@ echo $@
 
 echo $#
 
-value = (echo $*)
+value = echo $*
+
+echo values entered in value varaiable is : $value
