@@ -1,7 +1,6 @@
 #!/bin/bash
-echo "We are installing $0"
 
-Echo "Installing Nginix Server"
+echo -e "Installing Nginix Server\t\t ... \e[32mDone\e[0m"
 yum install nginx -y
 echo "Enabling nginx service"
 systemctl enable nginx
