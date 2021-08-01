@@ -1,3 +1,9 @@
+user_ID=$(id -u)
+ if [ $user_ID -ne 0 ]; then
+   echo -e "\e[31m You should be root user to run the commands\e[0m"
+   exit 2
+   fi
+
 #setting up loging file
 log=/tmp/roboshop.log
 
@@ -20,8 +26,4 @@ print(){
   echo -n -e "$1\t\t"
 }
 
-user_ID=$(id -u)
- if [ $user_ID -ne 0 ]; then
-   echo -e "\e[31m You should be root user to run the commands\[0m"
-   exit 2
-   fi
+
