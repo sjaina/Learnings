@@ -10,3 +10,5 @@ echo $*
 echo $@
 
 echo $#
+
+value = (echo $*)
