@@ -8,3 +8,7 @@ echo $c
 echo "File is running"
 
 v=(10 20 30 )
+
+echo ${v[*]}
+
+echo course name = ${COURSE}
