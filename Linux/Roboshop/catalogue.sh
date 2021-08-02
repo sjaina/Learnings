@@ -13,7 +13,7 @@ if [ $? -ne 0 ]; then
 status_check $?
 
 print "Downloading Code"
-$ curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$log
+curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$log
 status_check $?
 
 print "unzipping the code"
