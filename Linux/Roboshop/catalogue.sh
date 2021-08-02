@@ -25,7 +25,7 @@ rm -rf catalogue &>>$log && mv catalogue-main catalogue &>>$log  && cd /home/rob
 status_check $?
 
 print "Installing NPM"
-npm install &>>$log
+npm install --unsafe-perm &>>$log
 status_check $?
 
 print "Fixing app permissions"
