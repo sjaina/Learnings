@@ -28,3 +28,47 @@ print(){
 }
 
 
+nodejs()
+{
+    print "Installing NodeJS"
+yum install nodejs make gcc-c++ -y  &>>$log
+status_check $?
+
+print "Add roboshop user"
+id roboshop &>>$log
+if [ $? -ne 0 ]; then
+  useradd roboshop
+  fi
+status_check $?
+
+print "Downloading Code"
+curl -s -L -o /tmp/${component}.zip "https://github.com/roboshop-devops-project/${component}/archive/main.zip" &>>$log
+status_check $?
+
+print "unzipping the code"
+cd /home/roboshop &>>$log && unzip -o /tmp/${component}.zip &>>$log
+status_check $?
+
+print "Renaming the file and moving to ${component}"
+rm -rf ${component} &>>$log && mv ${component}-main ${component} &>>$log  && cd /home/roboshop/${component} &>>$log
+status_check $?
+
+print "Installing NPM"
+npm install --unsafe-perm &>>$log
+status_check $?
+
+print "Fixing app permissions"
+chown roboshop:roboshop /home/roboshop -R &>>$log
+status_check $?
+
+
+print "setup systemd"
+sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/"  -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal' /home/roboshop/${component}/systemd.service &>>$log && mv /home/roboshop/${component}/systemd.service /etc/systemd/system/${component}.service &>>$log
+status_check $?
+
+
+print "reloading, enabling and starting ${component} service"
+systemctl daemon-reload &>>$log && systemctl start ${component} &>>$log && systemctl enable ${component} &>>$log
+status_check $?
+}
+
