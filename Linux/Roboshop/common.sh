@@ -23,6 +23,7 @@ status_check()
 
 #print label
 print(){
+  echo "########################\t$1\t########################"
   echo -n -e "$1\t\t"
 }
 
