@@ -22,6 +22,9 @@ print "moving roboshop config"
 mv localhost.conf /etc/nginx/default.d/roboshop.conf &>>$log
 status_check $?
 
+print "Update config file"
+sed -i -e "/catalogue s/localhost/catalogue.roboshop.internal/" /etc/nginx/default.d/roboshop.conf &>>$log
+status_check $?
 
 # systemctl restart nginx
 print "Enabling nginx service\t"
