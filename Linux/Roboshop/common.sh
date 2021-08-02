@@ -69,7 +69,7 @@ status_check $?
 
 
 print "reloading, enabling and starting ${component} service"
-systemctl daemon-reload &>>$log && systemctl start ${component} &>>$log && systemctl enable ${component} &>>$log
+systemctl daemon-reload &>>$log && systemctl restart ${component} &>>$log && systemctl enable ${component} &>>$log
 status_check $?
 }
 
