@@ -31,4 +31,6 @@ print "unzip and loading the schema"
 cd /tmp &>>$log && unzip -o mongodb.zip &>>$log && cd mongodb-main  &>>$log
 status_check $?
 
- #mongo < catalogue.js && mongo < users.js
+ print "load schema"
+ mongo < catalogue.js &>>$log && mongo < users.js &>>$log
+ status_check $?
