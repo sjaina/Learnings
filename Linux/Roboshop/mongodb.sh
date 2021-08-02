@@ -16,7 +16,7 @@ yum install -y mongodb-org &>>$log
 
 print "Adding 0.0.0.0 in config file"
 
-sed -i -e '/127.0.0.1/0.0.0.0' /etc/mongod.conf &>>$log
+sed -i -e '/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>$log
 status_check $?
 
 print "Enabling and starting MongoDB service"
