@@ -18,6 +18,8 @@ redis: 	   ## Install Redis Component
 	@bash redis.sh
 shipping:  ## Install Shipping Component
 	@bash shipping.sh
+shipping:  ## Install User Component
+	@bash user.sh
 database: ##Installing all the Databases
 	@bash mysql.sh
 	@bash mongodb.sh
