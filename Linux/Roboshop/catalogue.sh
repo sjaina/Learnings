@@ -28,13 +28,13 @@ print "Installing NPM"
 npm install &>>$log
 status_check $?
 
-
-print "Creating catalogue service"
-mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>>$log
-status_check $?
-
 print "Fixing app permissions"
 chown roboshop:roboshop /home/roboshop -R &>>$log
+status_check $?
+
+
+print "setup mogodn in system"
+sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/" /etc/systemd/system/catalogue.service &>>$log && mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>>$log
 status_check $?
 
 
