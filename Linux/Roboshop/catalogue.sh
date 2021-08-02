@@ -12,15 +12,27 @@ if [ $? -ne 0 ]; then
   fi
 status_check $?
 
-#$ curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip"
-#$ cd /home/roboshop
-#$ unzip /tmp/catalogue.zip
-#$ mv catalogue-main catalogue
-#$ cd /home/roboshop/catalogue
-#$ npm install
+print "Downloading Code"
+$ curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>$log
+status_check $?
+
+print "unzipping the code"
+cd /home/roboshop &>>$log && unzip -o /tmp/catalogue.zip &>>$log
+status_check $?
+
+print "Renaming the file and moving to catalogue"
+mv catalogue-main catalogue &>>$log  && cd /home/roboshop/catalogue &>>$log
+status_check $?
+
+print "Installing NPM"
+npm install &>>$log
+status_check $?
 
 
-# mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
-# systemctl daemon-reload
-# systemctl start catalogue
-# systemctl enable catalogue
+print "Creating catalogue service"
+mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>>$log
+status_check $?
+
+print "reloading, enabling and starting Catalogue service"
+systemctl daemon-reload &>>$log && systemctl start catalogue &>>$log && systemctl enable catalogue &>>$log
+status_check $?
