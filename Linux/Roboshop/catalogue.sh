@@ -34,7 +34,7 @@ status_check $?
 
 
 print "setup mogodn in system"
-sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/" /etc/systemd/system/catalogue.service &>>$log && mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>>$log
+sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/" /home/roboshop/catalogue/systemd.service &>>$log && mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>>$log
 status_check $?
 
 
