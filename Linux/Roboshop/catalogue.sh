@@ -33,6 +33,11 @@ print "Creating catalogue service"
 mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service &>>$log
 status_check $?
 
+print "Fixing app permissions"
+chown roboshop:roboshop /home/roboshop -R &>>$log
+status_check $?
+
+
 print "reloading, enabling and starting Catalogue service"
 systemctl daemon-reload &>>$log && systemctl start catalogue &>>$log && systemctl enable catalogue &>>$log
 status_check $?
