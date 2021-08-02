@@ -6,7 +6,7 @@ yum install nodejs make gcc-c++ -y  &>>$log
 status_check $?
 
 print "Add roboshop user"
-if roboshop &>>$log
+id roboshop &>>$log
 if [ $? -ne 0 ]; then
   useradd roboshop
   fi
