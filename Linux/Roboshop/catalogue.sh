@@ -21,7 +21,7 @@ cd /home/roboshop &>>$log && unzip -o /tmp/catalogue.zip &>>$log
 status_check $?
 
 print "Renaming the file and moving to catalogue"
-mv catalogue-main catalogue &>>$log  && cd /home/roboshop/catalogue &>>$log
+rm -rf catalogue &>>$log && mv catalogue-main catalogue &>>$log  && cd /home/roboshop/catalogue &>>$log
 status_check $?
 
 print "Installing NPM"
