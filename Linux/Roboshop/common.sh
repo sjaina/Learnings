@@ -63,7 +63,7 @@ status_check $?
 
 
 print "setup systemd"
-sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/"  -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal' /home/roboshop/${component}/systemd.service &>>$log && mv /home/roboshop/${component}/systemd.service /etc/systemd/system/${component}.service &>>$log
+sed -i -e "s/MONGO_DNSNAME/mongodb.roboshop.internal/"  -e "s/MONGO_ENDPOINT/mongodb.roboshop.internal/" -e "s/REDIS_ENDPOINT/redis.roboshop.internal" /home/roboshop/${component}/systemd.service &>>$log && mv /home/roboshop/${component}/systemd.service /etc/systemd/system/${component}.service &>>$log
 status_check $?
 
 
