@@ -6,7 +6,10 @@ yum install nodejs make gcc-c++ -y  &>>$log
 status_check $?
 
 print "Add roboshop user"
-useradd roboshop &>>$log
+if roboshop &>>$log
+if [ $? -ne 0 ]; then
+  useradd roboshop
+  fi
 status_check $?
 
 #$ curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip"
